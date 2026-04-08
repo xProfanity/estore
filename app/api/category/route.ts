@@ -6,9 +6,9 @@ export async function GET(request: Request) {
 		const client = await dbClient()
 		const result = await client.query('select id,name from product_category')	
 		
-		return Response.json({rows: result.rows, status: 200})
+		return Response.json({rows: result.rows}, {status: 200})
 	} catch(err) {
 		console.log(err)
-		return Response.json({status: 500})
+		return Response.json({error: "internal server error"}, {status: 500})
 	}
 }
