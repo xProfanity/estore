@@ -1,4 +1,5 @@
 import axios from "axios"
+import Link from "next/link"
 
 export default async function Categories() {
 	try {
@@ -8,8 +9,15 @@ export default async function Categories() {
 	return (
 		<div className="w-full">
 			<ul className="w-full inline-flex justify-center items-center gap-8 grotesque text-xl py-2">
-				<li>Electonics</li>
-				<li>Zovala</li>
+				{categories?.rows ? (
+categories.rows.map((row: CategoryRow) => (
+						<li key={row.id} className="capitalize">
+							<Link href={`?category=${row.name.replaceAll(' ', '')}`} className="cursor-pointer hover:text-[#EF636C]">{row.name}</Link>
+						</li>
+					))
+				) : (
+					<p>Loading categories...</p>
+				)}
 			</ul>
 		</div>
 	)
