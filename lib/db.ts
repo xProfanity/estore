@@ -16,7 +16,7 @@ export async function dbClient() {
 		const client = await pool.connect()
 		return client
 	} catch(err) {
-		console.error("query error", err)
+		console.error("Connection error", err)
 		throw err instanceof Error ? err : new Error(String(err))
 	}
 }
