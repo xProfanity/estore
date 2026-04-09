@@ -12,7 +12,7 @@ export default async function Categories() {
 				{categories?.rows ? (
 categories.rows.map((row: CategoryRow) => (
 						<li key={row.id} className="capitalize">
-							<Link href={`?category=${row.name.replaceAll(' ', '')}`} className="cursor-pointer hover:text-[#EF636C]">{row.name}</Link>
+							<Link href={`?category=${row.id}`} className="cursor-pointer hover:text-[#EF636C]">{row.name}</Link>
 						</li>
 					))
 				) : (
